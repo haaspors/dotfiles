@@ -1,0 +1,20 @@
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES/zsh
+
+# source stuff
+for cfg ($ZSH/**/*.zsh) source $cfg
+[[ -a $HOME/.localrc ]] && source $HOME/.localrc
+#for cfg ($ZSH/**/*completion.sh) source $cfg
+
+# initialize autocomplete
+autoload -U compinit
+compinit
+
+export EDITOR='vim'
+[[ -d $HOME/src ]] && export SRCDIR=$HOME/src
+[[ -z "$TMUX" ]] && export TERM=xterm-256color
+
+# PATH
+export PATH=/usr/local/bin:$PATH
+[[ -d $DOTFILES/bin ]] && export PATH=$DOTFILES/bin:$PATH
+[[ -d $HOME/bin ]] && export PATH=$HOME/bin:$PATH

@@ -1,0 +1,160 @@
+""""""""""""""""""""""""""
+""" PACKAGE management """
+""""""""""""""""""""""""""
+set nocompatible               " be iMproved
+set encoding=utf-8
+
+" Start vundler
+source ~/.vim/plugins.vim
+
+autocmd ColorScheme * highlight ExtraWhitespace term=standout ctermbg=red guibg=red
+autocmd ColorScheme * highlight EightyColumnsPlus term=standout ctermbg=grey guibg=grey30
+colorscheme candyman
+
+""""""""""""""""""""""""""
+""" BASIC settings """
+""""""""""""""""""""""""""
+
+set autoindent
+set backspace=indent,eol,start
+set cindent
+set cmdheight=1
+set clipboard=unnamed
+set completeopt-=preview
+set cursorline
+set expandtab
+set hidden
+set hls
+set ignorecase
+set incsearch
+set laststatus=2
+set linebreak
+set nowrap
+set number
+set ruler
+set shell=/bin/bash
+set shiftwidth=2
+set showmatch
+set smartcase
+set smarttab
+set softtabstop=2
+set tabstop=2
+set textwidth=100
+set ttyfast
+set wildmenu
+
+" GUI settings
+set guioptions-=T
+set guioptions-=e
+
+" backup/persistance settings
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set backupskip=/tmp/*,/private/tmp/*"
+set backup
+set writebackup
+set noswapfile
+
+" persist (g)undo tree between sessions
+set undofile
+set history=100
+set undolevels=100
+
+" set <leader>
+let mapleader=","
+
+" show trailing whitespaces
+set list
+set listchars=tab:▸\ ,trail:¬,nbsp:.,extends:❯,precedes:❮
+augroup ListChars2
+    au!
+    autocmd filetype go set listchars+=tab:\ \
+    autocmd ColorScheme * hi! link SpecialKey Normal
+augroup END
+
+" syntax highlighting
+syntax on
+
+" togglables without FN keys
+nnoremap <leader>1 :NERDTreeToggle<CR>
+
+" open vimrc
+nnoremap <leader>v :e  ~/.vimrc<CR>
+nnoremap <leader>V :tabnew  ~/.vimrc<CR>
+
+" ctrlP config
+let g:ctrlp_map = "<c-p>"
+nnoremap <leader>t :CtrlPMRU<CR>
+nnoremap <leader>bp :CtrlPBuffer<CR>
+
+" Use regular replace
+nnoremap <leader>s :%s /
+vnoremap <leader>s :%s /
+
+if executable("ag")
+  let g:ackprg = "ag --nogroup --column"
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+nmap <leader>a :Ag <C-R>=expand("<cword>")<CR><CR>
+
+" File based stuff
+autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala            setfiletype vala
+au BufRead,BufNewFile *.vapi            setfiletype vala
+au BufRead,BufNewFile *.tex             setfiletype tex
+
+au FileType haskell,vhdl,ada            let b:comment_leader = '-- '
+au FileType vim                         let b:comment_leader = '" '
+au FileType c,cpp,java                  let b:comment_leader = '// '
+au FileType sh,make,tcl                 let b:comment_leader = '# '
+au FileType tex                         let b:comment_leader = '% '
+
+au BufWinEnter *.c,*.h let w:m2=matchadd('EightyColumnsPlus', '\%>80v.\+', -1)
+match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+
+let g:tex_flavor='latex'
+
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+""""""""""""""""""""""""""""""""
+" COOL HACKS
+""""""""""""""""""""""""""""""""
+
+function! HiInterestingWord(n)
+  " Save our location.
+  normal! mz
+  " Yank the current word into the z register.
+  normal! "zyiw
+  " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
+  let mid = 86750 + a:n
+  " Clear existing matches, but don't worry if they don't exist.
+  silent! call matchdelete(mid)
+  " Construct a literal pattern that has to match at boundaries.
+  let pat = '\V\<' . escape(@z, '\') . '\>'
+  " Actually match the words.
+  call matchadd("InterestingWord" . a:n, pat, 1, mid)
+  " Move back to our original location.
+  normal! `z
+endfunction
+
+nnoremap <leader>hh :call clearmatches()<CR>:noh<CR>
+nnoremap <silent> <leader>h1 :call HiInterestingWord(1)<cr>
+nnoremap <silent> <leader>h2 :call HiInterestingWord(2)<cr>
+nnoremap <silent> <leader>h3 :call HiInterestingWord(3)<cr>
+nnoremap <silent> <leader>h4 :call HiInterestingWord(4)<cr>
+nnoremap <silent> <leader>h5 :call HiInterestingWord(5)<cr>
+nnoremap <silent> <leader>h6 :call HiInterestingWord(6)<cr>
+
+hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
+hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
+hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
+hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
+hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
+hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
+

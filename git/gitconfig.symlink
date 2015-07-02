@@ -1,0 +1,23 @@
+[user]
+	email = haakon.sporsheim@gmail.com
+	name = Haakon Sporsheim
+[github]
+	user = ieei
+[color]
+	ui = auto
+
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%aD) %C(bold blue)<%an>%Creset' --abbrev-commit
+	st = status
+	stashgrep = "!sh -c 'for i in `git stash list --format=%gd`; do git stash show -p $i | grep -H --label=$i \"$0\"; done'"
+
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = haakon.sporsheim@gmail.com
+[push]
+	default = simple
+[core]
+	editor = vim
+	pager = less -F -X
