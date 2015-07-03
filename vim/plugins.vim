@@ -7,6 +7,7 @@ Bundle "gmarik/vundle"
 
 " vim main plugins
 Bundle "flazz/vim-colorschemes"
+Bundle 'ntpeters/vim-better-whitespace'
 Bundle "kien/ctrlp.vim"
 Bundle "scrooloose/syntastic.git"
 Bundle "bling/vim-airline"

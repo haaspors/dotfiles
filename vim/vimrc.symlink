@@ -7,9 +7,7 @@ set encoding=utf-8
 " Start vundler
 source ~/.vim/plugins.vim
 
-autocmd ColorScheme * highlight ExtraWhitespace term=standout ctermbg=red guibg=red
-autocmd ColorScheme * highlight EightyColumnsPlus term=standout ctermbg=grey guibg=grey30
-colorscheme candyman
+colorscheme molokai
 
 """"""""""""""""""""""""""
 """ BASIC settings """
@@ -65,6 +63,7 @@ set undolevels=100
 let mapleader=","
 
 " show trailing whitespaces
+let &colorcolumn="80,".join(range(120,500),",")
 set list
 set listchars=tab:▸\ ,trail:¬,nbsp:.,extends:❯,precedes:❮
 augroup ListChars2
@@ -110,9 +109,6 @@ au FileType vim                         let b:comment_leader = '" '
 au FileType c,cpp,java                  let b:comment_leader = '// '
 au FileType sh,make,tcl                 let b:comment_leader = '# '
 au FileType tex                         let b:comment_leader = '% '
-
-au BufWinEnter *.c,*.h let w:m2=matchadd('EightyColumnsPlus', '\%>80v.\+', -1)
-match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 
 let g:tex_flavor='latex'
