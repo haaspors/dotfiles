@@ -18,6 +18,7 @@ Plugin 'Valloric/YouCompleteMe'
 
 " extra language support
 Plugin 'tkztmk/vim-vala'
+Plugin 'tpope/vim-markdown'
 
 " togglable panels
 Bundle "scrooloose/nerdtree"
