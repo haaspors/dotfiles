@@ -70,7 +70,6 @@ fi
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   _git_get_repo git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi
-_create_symlink $ROOTDIR/zsh/haaspors.zsh-theme $HOME/.oh-my-zsh/themes/haaspors.zsh-theme
 
 # Vim
 echo "Setting up Vim"
