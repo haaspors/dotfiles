@@ -14,6 +14,9 @@ Bundle "bling/vim-airline"
 Bundle "tpope/vim-fugitive"
 Bundle "rking/ag.vim"
 
+" extra language support
+Plugin 'tkztmk/vim-vala'
+
 " togglable panels
 Bundle "scrooloose/nerdtree"
 

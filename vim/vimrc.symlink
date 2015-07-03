@@ -98,10 +98,6 @@ endif
 nmap <leader>a :Ag <C-R>=expand("<cword>")<CR><CR>
 
 " File based stuff
-autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala            setfiletype vala
-au BufRead,BufNewFile *.vapi            setfiletype vala
 au BufRead,BufNewFile *.tex             setfiletype tex
 
 au FileType haskell,vhdl,ada            let b:comment_leader = '-- '

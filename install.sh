@@ -79,7 +79,6 @@ _create_dir $HOME/.vim/syntax
 _create_dir $HOME/.vim/tmp/swap
 _create_dir $HOME/.vim/tmp/backup
 _create_dir $HOME/.vim/tmp/undo
-_create_symlink $ROOTDIR/vim/vala.vim $HOME/.vim/syntax/vala.vim
 _create_symlink $ROOTDIR/vim/cscope_maps.vim $HOME/.vim/plugin/cscope_maps.vim
 _create_symlink $ROOTDIR/vim/plugins.vim $HOME/.vim/plugins.vim
 _git_get_repo git://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
