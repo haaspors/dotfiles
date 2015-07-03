@@ -15,6 +15,7 @@ Bundle "tpope/vim-fugitive"
 Bundle "rking/ag.vim"
 Bundle "idbrii/vim-mark"
 Plugin 'Valloric/YouCompleteMe'
+Bundle "scrooloose/nerdcommenter"
 
 " extra language support
 Plugin 'tkztmk/vim-vala'
