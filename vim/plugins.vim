@@ -13,6 +13,7 @@ Bundle "scrooloose/syntastic.git"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-fugitive"
 Bundle "rking/ag.vim"
+Bundle "idbrii/vim-mark"
 
 " extra language support
 Plugin 'tkztmk/vim-vala'
