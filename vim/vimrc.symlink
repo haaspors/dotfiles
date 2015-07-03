@@ -97,23 +97,6 @@ if executable("ag")
 endif
 nmap <leader>a :Ag <C-R>=expand("<cword>")<CR><CR>
 
-" File based stuff
-au BufRead,BufNewFile *.tex             setfiletype tex
-
-au FileType haskell,vhdl,ada            let b:comment_leader = '-- '
-au FileType vim                         let b:comment_leader = '" '
-au FileType c,cpp,java                  let b:comment_leader = '// '
-au FileType sh,make,tcl                 let b:comment_leader = '# '
-au FileType tex                         let b:comment_leader = '% '
-
-
-let g:tex_flavor='latex'
-
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
 """"""""""""""""""""""""""""""""
 " COOL HACKS
 """"""""""""""""""""""""""""""""
