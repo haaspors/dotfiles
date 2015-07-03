@@ -84,6 +84,11 @@ _create_symlink $ROOTDIR/vim/plugins.vim $HOME/.vim/plugins.vim
 _git_get_repo git://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 vim +BundleInstall
 
+# You complete me
+pushd $HOME/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+popd
+
 # OpenSSH
 _create_dir $HOME/.ssh
 echo "Setting up .ssh"
