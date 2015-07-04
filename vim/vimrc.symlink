@@ -77,15 +77,25 @@ augroup END
 " syntax highlighting
 syntax on
 
-nnoremap <leader>v :e  ~/.vimrc<CR>
-nnoremap <leader>V :tabnew  ~/.vimrc<CR>
 let g:ctrlp_map = "<c-p>"
-nnoremap <leader>t :CtrlPMRU<CR>
-nnoremap <leader>bp :CtrlPBuffer<CR>
+nnoremap <leader>bt :CtrlPMRU<CR>
+nnoremap <leader>bp :CtrlP<CR>
+nnoremap <leader>bb :CtrlPBuffer<CR>
+nnoremap <leader>bt :CtrlPTag<CR>
 nnoremap <leader>1 :NERDTreeToggle<CR>
 nnoremap <leader>2 :TagbarToggle<CR>
-nnoremap <leader>s :%s /
-vnoremap <leader>s :%s /
+nnoremap <leader>evv :e ~/.vimrc<CR>
+nnoremap <leader>evp :e ~/.vim/plugins.vim<CR>
+nnoremap <leader>ez :e ~/.zshrc<CR>
+nnoremap <leader>et :e ~/.tmux.conf<CR>
+nnoremap <leader>l :ls<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>f :bn<CR>
+nnoremap <leader>, :w<CR>
+nnoremap <leader>. <c-^>
+nnoremap <leader>s :%s/
+nnoremap <c-n> :bn<CR>
+nnoremap <c-b> :bp<CR>
 
 if executable("ag")
   let g:ackprg = "ag --nogroup --column"
