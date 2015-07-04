@@ -23,6 +23,7 @@ Plugin 'tpope/vim-markdown'
 
 " togglable panels
 Bundle "scrooloose/nerdtree"
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on

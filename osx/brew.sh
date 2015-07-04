@@ -6,6 +6,7 @@ brew install tree
 brew install wget
 
 # development tools
+brew install ctags
 brew install git
 brew install hub
 brew install macvim --override-system-vim
