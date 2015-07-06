@@ -81,6 +81,7 @@ _create_dir $HOME/.vim/tmp/backup
 _create_dir $HOME/.vim/tmp/undo
 _create_symlink $ROOTDIR/vim/cscope_maps.vim $HOME/.vim/plugin/cscope_maps.vim
 _create_symlink $ROOTDIR/vim/plugins.vim $HOME/.vim/plugins.vim
+_create_symlink $ROOTDIR/vim/nerdtree_plugin $HOME/.vim/nerdtree_plugin
 _git_get_repo git://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 vim +BundleInstall
 
