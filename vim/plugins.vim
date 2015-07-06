@@ -17,6 +17,10 @@ Bundle "idbrii/vim-mark"
 Plugin 'Valloric/YouCompleteMe'
 Bundle "scrooloose/nerdcommenter"
 
+" tmux integration
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
 " extra language support
 Plugin 'tkztmk/vim-vala'
 Plugin 'tpope/vim-markdown'
