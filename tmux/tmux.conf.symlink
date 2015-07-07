@@ -14,6 +14,12 @@ set -g history-limit 20000
 set -g base-index 1
 setw -g pane-base-index 1
 
+# mouse support
+set -g mode-mouse on
+set-window-option -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+
 # Smart pane switching with awareness of vim splits
 is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
 bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
