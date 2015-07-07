@@ -16,6 +16,7 @@ Bundle "rking/ag.vim"
 Bundle "idbrii/vim-mark"
 Plugin 'Valloric/YouCompleteMe'
 Bundle "scrooloose/nerdcommenter"
+Plugin 'chazy/cscope_maps'
 
 " tmux integration
 Plugin 'edkolev/tmuxline.vim'
