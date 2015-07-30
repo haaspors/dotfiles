@@ -13,3 +13,5 @@ alias la="ls -AF ${colorflag}"
 alias ll="ls -lFh ${colorflag}"
 alias lld="ls -l | grep ^d"
 
+alias waf="python \$PWD/waf"
+
