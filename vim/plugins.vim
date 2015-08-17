@@ -11,6 +11,8 @@ Bundle 'ntpeters/vim-better-whitespace'
 Bundle "kien/ctrlp.vim"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-repeat"
 Bundle "rking/ag.vim"
 Bundle "idbrii/vim-mark"
 Bundle "scrooloose/nerdcommenter"
