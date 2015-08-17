@@ -32,7 +32,6 @@ set mouse=a
 set nowrap
 set number
 set ruler
-set shell=/bin/bash
 set shiftwidth=2
 set showmatch
 set smartcase
