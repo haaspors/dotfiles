@@ -20,8 +20,8 @@ Bundle "scrooloose/nerdcommenter"
 Plugin 'chazy/cscope_maps'
 
 " YCM
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'rdnetto/YCM-Generator'
 
 " tmux integration
 Plugin 'edkolev/tmuxline.vim'
