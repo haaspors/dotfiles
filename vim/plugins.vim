@@ -18,6 +18,7 @@ Bundle "rking/ag.vim"
 Bundle "idbrii/vim-mark"
 Bundle "scrooloose/nerdcommenter"
 Plugin 'chazy/cscope_maps'
+Bundle "jpetrie/vim-counterpoint"
 
 " YCM
 "Plugin 'Valloric/YouCompleteMe'

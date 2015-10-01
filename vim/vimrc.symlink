@@ -95,6 +95,7 @@ nnoremap <leader>f :bn<CR>
 nnoremap <leader>, :w<CR>
 nnoremap <leader>. <c-^>
 nnoremap <leader>s :%s/
+nnoremap <leader>z :CounterpointNext! aboveleft vsplit<CR>
 nnoremap <c-n> :bn<CR>
 nnoremap <c-b> :bp<CR>
 
