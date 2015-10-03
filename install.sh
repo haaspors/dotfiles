@@ -66,6 +66,12 @@ elif [ "$(uname)" == "Linux" ]; then
   source $ROOTDIR/linux/env.sh
 fi
 
+# OpenSSH
+_create_dir $HOME/.ssh
+echo "Setting up .ssh"
+_create_symlink $DBDIR/keys/config $HOME/.ssh/config
+gpg-zip -d --tar-args "-C $HOME/.ssh" $DBDIR/keys/keys
+
 # zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   _git_get_repo git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
@@ -88,12 +94,6 @@ vim +BundleInstall
 pushd $HOME/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 popd
-
-# OpenSSH
-_create_dir $HOME/.ssh
-echo "Setting up .ssh"
-_create_symlink $DBDIR/keys/config $HOME/.ssh/config
-gpg-zip -d --tar-args "-C $HOME/.ssh" $DBDIR/keys/keys
 
 echo "Configuring zsh as default shell"
 chsh -s $(which zsh)
