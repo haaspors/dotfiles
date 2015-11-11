@@ -23,3 +23,5 @@
 	pager = less -F -X
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[diff]
+	algorithm = patience
