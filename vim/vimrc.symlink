@@ -104,3 +104,5 @@ if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 nmap <leader>a :Ag! <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>A :Ag! -w <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>Ah :Ag! -w --hh <C-R>=expand("<cword>")<CR><CR>
