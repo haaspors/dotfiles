@@ -72,6 +72,10 @@ echo "Setting up .ssh"
 _create_symlink $DBDIR/keys/config $HOME/.ssh/config
 gpg-zip -d --tar-args "-C $HOME/.ssh" $DBDIR/keys/keys
 
+# GNU PG
+echo "Setting up .gnupg"
+gpg --no-use-agent --output - $DBDIR/keys/gpg.asc.gpg | gpg --import -
+
 # zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   _git_get_repo git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
