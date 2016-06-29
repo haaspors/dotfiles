@@ -19,6 +19,7 @@ Bundle "idbrii/vim-mark"
 Bundle "scrooloose/nerdcommenter"
 Plugin 'chazy/cscope_maps'
 Bundle "jpetrie/vim-counterpoint"
+Bundle "vimwiki/vimwiki"
 
 " YCM
 "Plugin 'Valloric/YouCompleteMe'
