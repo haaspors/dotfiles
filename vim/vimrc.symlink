@@ -106,3 +106,4 @@ endif
 nmap <leader>a :Ag! <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>A :Ag! -w <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>Ah :Ag! -w --hh <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>Ac :Ag! -w --cc <C-R>=expand("<cword>")<CR><CR>
