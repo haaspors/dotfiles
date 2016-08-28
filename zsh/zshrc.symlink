@@ -24,3 +24,5 @@ plugins=(git mercurial npm sudo web-search $PLATFORM_PLUGINS)
 source "$ZSH/oh-my-zsh.sh"
 
 export EDITOR='vim'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
