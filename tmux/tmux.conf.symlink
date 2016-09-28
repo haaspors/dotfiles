@@ -3,7 +3,6 @@ if-shell 'test "$(uname)" = "Darwin"' 'set -g default-command "reattach-to-user-
 
 # tmux display things in 256 colors
 set -g default-terminal "screen-256color"
-set -g status-utf8 on
 
 # prefix is now c-a
 set -g prefix C-a
