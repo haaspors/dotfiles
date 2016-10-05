@@ -81,6 +81,13 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   _git_get_repo git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi
 
+# Install powerline fonts
+pushd $TMP
+git https://github.com/powerline/fonts powerfonts
+powerfonts/install.sh
+rm -rf powerfonts
+popd
+
 # Vim
 echo "Setting up Vim"
 _create_dir $HOME/.vim/bundle
