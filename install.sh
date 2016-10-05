@@ -95,9 +95,9 @@ _git_get_repo git://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 vim +BundleInstall
 
 # You complete me
-pushd $HOME/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
-popd
+#pushd $HOME/.vim/bundle/YouCompleteMe
+#./install.sh --clang-completer
+#popd
 
 echo "Configuring zsh as default shell"
 chsh -s $(which zsh)
