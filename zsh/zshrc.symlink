@@ -20,7 +20,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 if [[ "$(uname)" == "Darwin" ]]; then
   PLATFORM_PLUGINS=brew
 fi
-plugins=(git mercurial npm sudo web-search $PLATFORM_PLUGINS)
+plugins=(git github mercurial cargo rust tmux npm sudo web-search $PLATFORM_PLUGINS)
 source "$ZSH/oh-my-zsh.sh"
 
 export EDITOR='vim'
