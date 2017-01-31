@@ -5,12 +5,6 @@ source ~/.vim/plugins.vim
 
 colorscheme molokai
 
-let g:airline_theme="dark"
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 0
-
-
 """"""""""""""""""""""""""
 """ BASIC settings """
 """"""""""""""""""""""""""
@@ -77,7 +71,6 @@ augroup END
 " syntax highlighting
 syntax on
 
-let g:ctrlp_map = "<c-p>"
 nnoremap <leader>bt :CtrlPMRU<CR>
 nnoremap <leader>bp :CtrlP<CR>
 nnoremap <leader>bb :CtrlPBuffer<CR>
@@ -99,10 +92,6 @@ nnoremap <leader>z :CounterpointNext! aboveleft vsplit<CR>
 nnoremap <c-n> :bn<CR>
 nnoremap <c-b> :bp<CR>
 
-if executable("ag")
-  let g:ackprg = "ag --nogroup --column"
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 nmap <leader>a :Ag! <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>A :Ag! -w <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>Ah :Ag! -w --hh <C-R>=expand("<cword>")<CR><CR>
