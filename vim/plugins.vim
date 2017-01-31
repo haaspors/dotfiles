@@ -3,27 +3,22 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
-Bundle "gmarik/vundle"
+Plugin 'gmarik/vundle'
 
 " vim main plugins
-Bundle "flazz/vim-colorschemes"
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle "kien/ctrlp.vim"
-Bundle "bling/vim-airline"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-repeat"
-Bundle "tpope/vim-dispatch"
-Bundle "rking/ag.vim"
-Bundle "idbrii/vim-mark"
-Bundle "scrooloose/nerdcommenter"
-Plugin 'chazy/cscope_maps'
-Bundle "jpetrie/vim-counterpoint"
-Bundle "vimwiki/vimwiki"
-
-" YCM
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'rdnetto/YCM-Generator'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-dispatch'
+Plugin 'rking/ag.vim'
+Plugin 'idbrii/vim-mark'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jpetrie/vim-counterpoint'
+Plugin 'vimwiki/vimwiki'
 
 " tmux integration
 Plugin 'edkolev/tmuxline.vim'
@@ -34,7 +29,7 @@ Plugin 'tkztmk/vim-vala'
 Plugin 'tpope/vim-markdown'
 
 " togglable panels
-Bundle "scrooloose/nerdtree"
+Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 
 call vundle#end()
