@@ -43,5 +43,10 @@ Plugin 'tpope/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 
+" orgmode
+Plugin 'jceb/vim-orgmode'
+let g:org_agenda_files = ['~/org/*.org']
+let g:org_indent = 1
+
 call vundle#end()
 filetype plugin indent on
