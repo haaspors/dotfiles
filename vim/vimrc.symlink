@@ -57,6 +57,7 @@ set undolevels=100
 
 " set <leader>
 let mapleader=","
+let maplocalleader="\\"
 
 " show trailing whitespaces
 let &colorcolumn="80"
