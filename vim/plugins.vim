@@ -6,6 +6,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " vim main plugins
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'idbrii/vim-mark'
 Plugin 'jpetrie/vim-counterpoint'
