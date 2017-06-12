@@ -1,0 +1,453 @@
+#+TITLE: Emacs Configuration
+#+AUTHOR: Haakon Sporsheim
+#+EMAIL: haakon.sporsheim@gmail.com
+#+OPTIONS: toc:3 num:nil ^:nil
+
+* About
+  This is my emacs configuration written in [[http://orgmode.org][Org mode]]. It is how I both keep
+  the configuration tidy (one file) as well as documented.
+
+  As many others warn about. Please don't try to use this configuration as is,
+  but you are welcome to learn/steal stuff from it! :)
+
+** Using this configuration
+  If you absolutly want to try it out this is how you should go about;
+
+  Backup your current =~/.emacs.d= directory.
+  #+BEGIN_SRC sh :tangle no
+  mv ~/.emacs.d ~/.emacs.d-bak
+  mv ~/.emacs ~/.emacs-bak
+  #+END_SRC
+
+  Clone my dotfiles repo.
+  #+BEGIN_SRC sh :tangle no
+  git clone https://github.com/ieei/dotfiles
+  #+END_SRC
+
+  Symlink the =~/.emacs.d= directory.
+  #+BEGIN_SRC sh :tangle no
+  ln -sf $(pwd)/dotfiles/emacs.d ~/.emacs.d
+  #+END_SRC
+* Variables
+  Define .local directory where tmp/backup/autosaves goes
+  #+BEGIN_SRC emacs-lisp
+  (defvar local-directory
+    (concat user-emacs-directory ".local/")
+    "This variable dictates where to put auto saves.")
+  #+END_SRC
+* Package init
+  Initialize package manager and use MELPA!
+  #+BEGIN_SRC emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+  (package-initialize)
+  #+END_SRC
+
+  Setup =use-package=
+  #+BEGIN_SRC emacs-lisp
+  ;; Ensure use-package is installed
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+
+  ;; Configure and load use-package
+  (setq use-package-always-ensure t)
+  (require 'diminish)
+
+  (eval-when-compile
+    (defvar use-package-verbose t)
+    (require 'use-package))
+  #+END_SRC
+* Essential settings
+** Startup
+  Don't show splash and startup stuff
+  #+BEGIN_SRC emacs-lisp
+  (setq inhibit-splash-screen t)
+  (setq inhibit-startup-message t)
+  (setq inhibit-startup-echo-area-message t)
+  (setq initial-major-mode 'text-mode)
+  (setq initial-scratch-message nil)
+  #+END_SRC
+** File encoding system
+  Set utf-8 and unix line endings as default
+  #+BEGIN_SRC emacs-lisp
+  (prefer-coding-system 'utf-8)
+  (setq-default buffer-file-coding-system 'utf-8-unix)
+  #+END_SRC
+** Misc
+  Answer /y/ or /n/ instead of /yes/ and /no/.
+  #+BEGIN_SRC emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+  #+END_SRC
+
+  Ignore audible bell please!
+  #+BEGIN_SRC emacs-lisp
+  (setq ring-bell-function 'ignore)
+  #+END_SRC
+
+  Don't use tabs
+  #+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+  #+END_SRC
+
+  Don't let abbrev minor mode show in modeline
+  #+BEGIN_SRC emacs-lisp
+  (diminish 'abbrev-mode)
+  #+END_SRC
+** Global keybindings
+*** Toggle fullscreen
+  Set =F11= to toggle fullscreen!
+  #+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "<f11>") '(lambda () (interactive) (toggle-frame-fullscreen)))
+  #+END_SRC
+** Backup / Temprary files
+  Make sure temporary files are stored in ~/.emacs.d/.backup/
+  #+BEGIN_SRC emacs-lisp
+  (setq auto-save-list-file-prefix nil)
+  (setq backup-directory-alist `((".*" . ,local-directory)))
+  (setq auto-save-file-name-transforms `((".*" ,local-directory t)))
+  (setq recentf-save-file (expand-file-name "recentf" local-directory))
+  #+END_SRC
+* Apperance
+** UI
+  Disable menu, tool and scroll bar
+  #+BEGIN_SRC emacs-lisp
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  #+END_SRC
+** Columns / lines
+  Add column and line numbers to the modeline
+  #+BEGIN_SRC emacs-lisp
+  (column-number-mode 1)
+  (line-number-mode 1)
+  #+END_SRC
+
+  Show line numbers
+  #+BEGIN_SRC emacs-lisp
+  (use-package nlinum
+    :ensure t
+    :config
+    (add-hook 'text-mode-hook #'nlinum-mode)
+    (add-hook 'prog-mode-hook #'nlinum-mode))
+  #+END_SRC
+
+  Show empty lines in the fringe
+  #+BEGIN_SRC emacs-lisp
+  (fringe-mode '(nil . 0))
+  (setq-default indicate-empty-lines t)
+  #+END_SRC
+** Highlight
+  Highlight current line
+  #+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode 1)
+  #+END_SRC
+
+  Highlight numbers
+  #+BEGIN_SRC emacs-lisp
+  (use-package highlight-numbers
+    :diminish highlight-numbers-mode
+    :config
+    (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+  #+END_SRC
+
+  Show matching parenthesis
+  #+BEGIN_SRC emacs-lisp
+  (use-package paren
+    :init
+    (setq show-paren-delay 0)
+    :config
+    (show-paren-mode 1))
+  #+END_SRC
+
+  Show trailing whitespace.
+  This uses whitespace-mode because of fci-mode doesn't handle
+  show-trailing-whitespace.
+  #+BEGIN_SRC emacs-lisp
+  (setq whitespace-style '(face trailing))
+  (global-whitespace-mode t)
+
+  ; using show-trailing-whitespace
+  ;(custom-set-faces '(trailing-whitespace ((t (:background "red")))))
+  ;(setq-default show-trailing-whitespace t)
+  ;(add-hook 'diff-mode-hook (lambda () (setq show-trailing-whitespace nil)))
+  #+END_SRC
+
+  Adds an indicator on column 80 for programming modes
+  #+BEGIN_SRC emacs-lisp
+  (use-package fill-column-indicator
+    :ensure t
+    :diminish fci-mode
+    :init
+    (setq-default fill-column 80)
+    (setq fci-handle-truncate-lines nil)
+    :config
+    (add-hook 'prog-mode-hook #'fci-mode))
+  #+END_SRC
+** Font
+  Use Source Code Pro 10
+  #+BEGIN_SRC emacs-lisp
+  (if (window-system)
+    (set-frame-font "Source Code Pro 10"))
+  #+END_SRC
+** Theme
+  Load theme
+  #+BEGIN_SRC emacs-lisp
+  (setq color-themes '())
+  (use-package doom-themes
+    :config
+    (setq doom-enable-bold t)
+    (setq doom-enable-italic t)
+    (doom-themes-nlinum-config))
+  (load-theme 'doom-vibrant t)
+  #+END_SRC
+
+  Customize some of the theme faces so it looks better!
+  #+BEGIN_SRC emacs-lisp
+  (custom-set-faces
+    `(mode-line                 ((t (:inherit nil :foreground "white"    :background nil))))
+    `(mode-line-inactive        ((t (:inherit nil :foreground "gray"     :background nil :box nil))))
+    `(powerline-active1         ((t (:inherit nil :foreground "white"    :background "SkyBlue4"))))
+    `(powerline-active2         ((t (:inherit nil :foreground "white"    :background nil))))
+    `(powerline-inactive1       ((t (:inherit nil :foreground "SkyBlue4" :background nil))))
+    `(powerline-inactive2       ((t (:inherit nil :foreground "SkyBlue4" :background nil))))
+    `(spaceline-highlight-face  ((t (:inherit nil :foreground "SkyBlue1" :background "SkyBlue4"))))
+    `(spaceline-evil-normal     ((t (:inherit nil :foreground "SkyBlue1" :background "SkyBlue4"))))
+    `(whitespace-trailing       ((t (:inherit nil :foreground nil        :background "red"))))
+  )
+  #+END_SRC
+** Mode line
+  I started out using `powerline` since I'm an expat tmux+vim user.
+  BUT, I found spaceline-all-the-icons exiting since it looks nice with icons,
+  WELL, that was wrong, it needs a lot of love to just work with any theme.
+  #+BEGIN_SRC emacs-lisp
+  (use-package powerline)
+  (use-package spaceline
+  :after powerline
+  :ensure t
+  :init
+  (require 'spaceline-config)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+  :config
+  (spaceline-helm-mode +1)
+  (spaceline-info-mode +1)
+  )
+  (use-package spaceline-all-the-icons
+  :after spaceline
+  :config
+  (setq spaceline-all-the-icons-slim-render nil)
+  (setq spaceline-all-the-icons-primary-separator "")
+  (setq spaceline-all-the-icons-icon-set-git-ahead (quote commit))
+  (setq spaceline-all-the-icons-highlight-file-name t)
+  (setq spaceline-all-the-icons-separator-type (quote arrow))
+  ;(setq spaceline-all-the-icons-clock-always-visible nil) This doesn't work with arrow separator
+  (spaceline-toggle-all-the-icons-mode-icon-on)
+  (spaceline-toggle-all-the-icons-buffer-id-on)
+  (spaceline-toggle-all-the-icons-buffer-path-off)
+  (spaceline-toggle-all-the-icons-flycheck-status-on)
+  (spaceline-toggle-all-the-icons-position-on)
+  (spaceline-toggle-all-the-icons-region-info-on)
+  (spaceline-toggle-all-the-icons-fullscreen-off)
+  (spaceline-toggle-all-the-icons-text-scale-on)
+  (spaceline-toggle-all-the-icons-package-updates-on)
+  (spaceline-toggle-all-the-icons-vc-icon-on)
+  (spaceline-toggle-all-the-icons-vc-status-on)
+  (spaceline-toggle-all-the-icons-git-status-on)
+  (spaceline-toggle-all-the-icons-git-ahead-on)
+  (spaceline-toggle-all-the-icons-which-function-on)
+  (spaceline-toggle-all-the-icons-hud-on)
+  (spaceline-toggle-all-the-icons-buffer-position-on)
+  (spaceline-all-the-icons--setup-git-ahead)
+  (spaceline-all-the-icons--setup-package-updates)
+  (spaceline-all-the-icons-theme))
+  #+END_SRC
+
+  Set cursor base on evil state. Face color taken from spaceline-evil-<state>.
+  #+BEGIN_SRC emacs-lisp
+  (setq evil-emacs-state-cursor   `(,(face-attribute 'spaceline-evil-emacs :foreground) box))
+  (setq evil-insert-state-cursor  `(,(face-attribute 'spaceline-evil-insert :background) bar))
+  (setq evil-motion-state-cursor  `(,(face-attribute 'spaceline-evil-motion :background) bar))
+  (setq evil-normal-state-cursor  `(,(face-attribute 'spaceline-evil-normal :foreground) box))
+  (setq evil-replace-state-cursor `(,(face-attribute 'spaceline-evil-replace :background) bar))
+  (setq evil-visual-state-cursor  `(,(face-attribute 'spaceline-evil-visual :background) box))
+  #+END_SRC
+* Evil
+  Evil is the package that gives emacs vim emulation.
+  #+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :ensure t
+    :init
+    (setq evil-want-C-u-scroll t)
+    (setq evil-want-C-w-delete t)
+    :config
+    (evil-mode 1))
+
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader ",")
+    (evil-leader/set-key
+      "b" 'helm-mini
+      "B" 'helm-buffer-list
+      "o" 'helm-occur
+      "p" 'helm-projectile
+      "s" 'helm-projectile-ag
+      "x" 'helm-M-x)
+    )
+
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode))
+
+  (use-package evil-indent-textobject
+    :ensure t)
+  #+END_SRC
+* Helm
+  helm
+  #+BEGIN_SRC emacs-lisp
+  (use-package helm
+    :ensure t
+    :diminish helm-mode
+    :init
+    (setq helm-M-x-fuzzy-match t)
+    (setq helm-completion-in-region-fuzzy-match t)
+    (setq helm-autoresize-mode t)
+    (setq helm-buffer-max-length 40)
+    (helm-mode t)
+    :config
+    (global-set-key (kbd "C-c f r") 'helm-recentf)
+    (global-set-key (kbd "C-x C-f") 'helm-find-files)
+    (global-set-key (kbd "M-x") 'helm-M-x))
+
+  (use-package helm-gitignore)
+  (use-package helm-flx
+    :config
+    (helm-flx-mode t))
+  (use-package helm-make
+    :ensure t
+    :config
+    (global-set-key (kbd "C-c m") 'helm-make-projectile))
+  #+END_SRC
+* Projectile
+  Use =projectile=
+  #+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :ensure t
+    :diminish projectile-mode
+    :config
+    (setq projectile-enable-caching t)
+    (setq projectile-completion-system 'helm)
+    (setq projectile-switch-project-action 'helm-projectile)
+    (setq projectile-cache-file (expand-file-name "projectile.cache" local-directory))
+    (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" local-directory))
+    (projectile-global-mode))
+
+  (use-package helm-projectile
+    :commands (helm-projectile)
+    :config
+    (helm-projectile-on))
+  #+END_SRC
+* Ag - The silver searcher
+  #+BEGIN_SRC emacs-lisp
+  (use-package ag
+    :ensure t
+    :commands (ag ag-files ag-regexp ag-project ag-dired helm-ag)
+    :config
+    (setq ag-highlight-search t)
+    (setq ag-reuse-buffers t))
+
+  (use-package helm-ag
+    :commands (helm-ag))
+  #+END_SRC
+* Version control
+** Magit
+  The all essential Git package
+  #+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t
+    :commands (magit-status projectile-vc)
+    :config
+    (use-package evil-magit))
+  #+END_SRC
+** Git gutter
+  Show changes in the fringe
+  #+BEGIN_SRC emacs-lisp
+  (use-package git-gutter)
+  (use-package git-gutter-fringe+
+    :diminish git-gutter-mode
+    :init
+    (setq git-gutter-fr+-side 'left-fringe)
+    :config
+;   (fringe-helper-define 'git-gutter-fr+-added nil
+;       "..X...."
+;       "..X...."
+;       "XXXXX.."
+;       "..X...."
+;       "..X....")
+;   (fringe-helper-define 'git-gutter-fr+-deleted nil
+;       "......."
+;       "......."
+;       "XXXXX.."
+;       "......."
+;       ".......")
+;   (fringe-helper-define 'git-gutter-fr+-modified nil
+;       "..X...."
+;       ".XXX..."
+;       "XX.XX.."
+;       ".XXX..."
+;       "..X....")
+    (global-git-gutter+-mode t))
+  #+END_SRC
+* Which-function
+  #+BEGIN_SRC emacs-lisp
+  (use-package which-func
+    :diminish which-function-mode
+    :ensure t
+    :config
+    (which-function-mode t))
+  #+END_SRC
+* Undo-tree
+  #+BEGIN_SRC emacs-lisp
+  (use-package undo-tree
+    :diminish undo-tree-mode
+    :config
+    (setq undo-tree-auto-save-history t)
+    (setq undo-tree-history-directory-alist (list (cons "."
+      (expand-file-name "undo-tree-history" local-directory)))))
+  #+END_SRC
+* Rainbow mode
+  Highlight colors
+  Regexp taken from "https://github.com/elbeno/dotemacs" to prevent #define
+  #+BEGIN_SRC emacs-lisp
+  (use-package rainbow-mode
+    :config
+    (setq rainbow-hexadecimal-colors-font-lock-keywords
+      '(("[^&]\\(#\\(?:[0-9a-fA-F]\\{3\\}\\)+\\{1,4\\}\\)\\b"
+         (1 (rainbow-colorize-itself 1)))
+        ("^\\(#\\(?:[0-9a-fA-F]\\{3\\}\\)+\\{1,4\\}\\)\\b"
+         (0 (rainbow-colorize-itself)))
+        ("[Rr][Gg][Bb]:[0-9a-fA-F]\\{1,4\\}/[0-9a-fA-F]\\{1,4\\}/[0-9a-fA-F]\\{1,4\\}"
+         (0 (rainbow-colorize-itself)))
+        ("[Rr][Gg][Bb][Ii]:[0-9.]+/[0-9.]+/[0-9.]+"
+         (0 (rainbow-colorize-itself)))
+        ("\\(?:[Cc][Ii][Ee]\\(?:[Xx][Yy][Zz]\\|[Uu][Vv][Yy]\\|[Xx][Yy][Yy]\\|[Ll][Aa][Bb]\\|[Ll][Uu][Vv]\\)\\|[Tt][Ee][Kk][Hh][Vv][Cc]\\):[+-]?[0-9.]+\\(?:[Ee][+-]?[0-9]+\\)?/[+-]?[0-9.]+\\(?:[Ee][+-]?[0-9]+\\)?/[+-]?[0-9.]+\\(?:[Ee][+-]?[0-9]+\\)?"
+         (0 (rainbow-colorize-itself)))))
+    (add-hook 'prog-mode-hook #'rainbow-mode)
+    (add-hook 'css-mode-hook #'rainbow-mode))
+  #+END_SRC
+* Rainbow delimiters
+  Highlight parentheses, brackets, and braces with rainbow colors
+  #+BEGIN_SRC emacs-lisp
+  (use-package rainbow-delimiters
+    :config
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  #+END_SRC
+* Eshell
+  #+BEGIN_SRC emacs-lisp
+  (use-package eshell
+    :commands eshell
+    :init
+    (setq eshell-history-file-name (expand-file-name "esh-history" local-directory)))
+  #+END_SRC

@@ -101,10 +101,8 @@ _create_symlink $ROOTDIR/vim/nerdtree_plugin $HOME/.vim/nerdtree_plugin
 _git_get_repo git://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 vim +BundleInstall
 
-# You complete me
-#pushd $HOME/.vim/bundle/YouCompleteMe
-#./install.sh --clang-completer
-#popd
+# Emacs
+_create_symlink $ROOTDIR/emacs.d $HOME/.emacs.d
 
 echo "Configuring zsh as default shell"
 chsh -s $(which zsh)
