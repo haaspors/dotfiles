@@ -49,5 +49,8 @@ Plugin 'jceb/vim-orgmode'
 let g:org_agenda_files = ['~/org/*.org']
 let g:org_indent = 1
 
+" Rust
+Plugin 'rust-lang/rust.vim'
+
 call vundle#end()
 filetype plugin indent on
