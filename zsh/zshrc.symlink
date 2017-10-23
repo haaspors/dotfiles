@@ -1,6 +1,7 @@
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$DOTFILES/zsh
+export GCSDK=/opt/google-cloud-sdk
 
 ZSH_THEME="haaspors"
 
@@ -19,6 +20,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [[ -d $DOTFILES/bin ]] && export PATH=$DOTFILES/bin:$PATH
 [[ -d $HOME/bin ]] && export PATH=$HOME/bin:$PATH
 [[ -d $HOME/.node_modules/bin ]] && export PATH=$PATH:$HOME/.node_modules/bin
+[[ -d $GCSDK/bin ]] && export PATH=$PATH:$GCSDK/bin
 [[ -d $GOPATH/bin ]] && export PATH=$PATH:$GOPATH/bin
 
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -30,6 +32,7 @@ source "$ZSH/oh-my-zsh.sh"
 export EDITOR='vim'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[[ -e $GCSDK/completion.zsh.inc ]] && source "$GCSDK/completion.zsh.inc"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
