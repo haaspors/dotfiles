@@ -40,6 +40,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-markdown'
 Plugin 'tkztmk/vim-vala'
+Plugin 'posva/vim-vue'
 
 " togglable panels
 Plugin 'scrooloose/nerdtree'
