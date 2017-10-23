@@ -37,8 +37,9 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " extra language support
-Plugin 'tkztmk/vim-vala'
+Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-markdown'
+Plugin 'tkztmk/vim-vala'
 
 " togglable panels
 Plugin 'scrooloose/nerdtree'
