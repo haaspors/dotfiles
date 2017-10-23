@@ -16,6 +16,7 @@ for cfg ($DOTFILES/zsh/**/*.zsh) source $cfg
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [[ -d $DOTFILES/bin ]] && export PATH=$DOTFILES/bin:$PATH
 [[ -d $HOME/bin ]] && export PATH=$HOME/bin:$PATH
+[[ -d $HOME/.node_modules/bin ]] && export PATH=$PATH:$HOME/.node_modules/bin
 
 if [[ "$(uname)" == "Darwin" ]]; then
   PLATFORM_PLUGINS=brew
