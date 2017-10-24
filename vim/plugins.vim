@@ -55,5 +55,11 @@ let g:org_indent = 1
 " Rust
 Plugin 'rust-lang/rust.vim'
 
+" Colorschemes
+Plugin 'dracula/vim'
+Plugin 'jdkanani/vim-material-theme'
+Plugin 'lifepillar/vim-solarized8'
+Plugin 'chriskempson/base16-vim'
+
 call vundle#end()
 filetype plugin indent on
