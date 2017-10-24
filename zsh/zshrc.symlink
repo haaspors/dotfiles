@@ -11,7 +11,7 @@ for cfg ($DOTFILES/zsh/**/*.zsh) source $cfg
 #for cfg ($DOTFILES/zsh/**/*completion.sh) source $cfg
 
 [[ -d $HOME/src ]] && export SRCDIR=$HOME/src
-[[ -z "$TMUX" ]] && export TERM=xterm-256color
+export TERM=xterm-256color
 
 export GOPATH=$(go env GOPATH)
 
