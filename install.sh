@@ -65,6 +65,11 @@ elif [ "$(uname)" == "Linux" ]; then
   source $ROOTDIR/linux/env.sh
 fi
 
+# tmux
+if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+  _git_get_repo https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
+
 # zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   _git_get_repo git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
