@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ROOTDIR=$(dirname $0)
-[ -z "$DBDIR" ] && DBDIR=$HOME/Dropbox
 
 # Functions
 
@@ -65,16 +64,6 @@ elif [ "$(uname)" == "Linux" ]; then
   echo "Environment"
   source $ROOTDIR/linux/env.sh
 fi
-
-# OpenSSH
-_create_dir $HOME/.ssh
-echo "Setting up .ssh"
-_create_symlink $DBDIR/keys/config $HOME/.ssh/config
-gpg-zip -d --tar-args "-C $HOME/.ssh" $DBDIR/keys/keys
-
-# GNU PG
-echo "Setting up .gnupg"
-gpg --no-use-agent --output - $DBDIR/keys/gpg.asc.gpg | gpg --import -
 
 # zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
