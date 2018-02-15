@@ -19,6 +19,7 @@ export GOPATH=$(go env GOPATH)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [[ -d $DOTFILES/bin ]] && export PATH=$DOTFILES/bin:$PATH
 [[ -d $HOME/bin ]] && export PATH=$HOME/bin:$PATH
+[[ -d $HOME/.local/bin ]] && export PATH=$PATH:$HOME/.local/bin
 [[ -d $HOME/.cargo/bin ]] && export PATH=$PATH:$HOME/.cargo/bin
 [[ -d $HOME/.node_modules/bin ]] && export PATH=$PATH:$HOME/.node_modules/bin
 [[ -d $GCSDK/bin ]] && export PATH=$PATH:$GCSDK/bin
