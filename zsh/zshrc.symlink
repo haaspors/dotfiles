@@ -27,6 +27,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 if [[ "$(uname)" == "Darwin" ]]; then
   PLATFORM_PLUGINS=brew
+elif [[ "$(lsb_release -si)" == "Debian" ]]; then
+  PLATFORM_PLUGINS=debian
 fi
 plugins=(git github mercurial cargo rust tmux npm kubectl sudo web-search $PLATFORM_PLUGINS)
 source "$ZSH/oh-my-zsh.sh"
