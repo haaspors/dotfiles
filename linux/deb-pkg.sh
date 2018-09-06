@@ -8,7 +8,7 @@ sudo apt-get install -y vpnc openssh-server
 sudo apt-get install -y wireshark virtualbox
 
 # Development
-sudo apt-get install -y git-gui gitk git-email git-review
+sudo apt-get install -y git-gui gitk git-email git-review git-extras
 sudo apt-get install -y gcc clang valgrind
 sudo apt-get install -y binutils build-essential
 sudo apt-get install -y bison flex yasm
