@@ -30,7 +30,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(lsb_release -si)" == "Debian" ]]; then
   PLATFORM_PLUGINS=debian
 fi
-plugins=(git github mercurial cargo rust tmux npm kubectl sudo web-search vi-mode $PLATFORM_PLUGINS history-substring-search zsh-syntax-highlighting)
+VS_PLUGINS=(git github mercurial)
+TOOLS_PLUGINS=(tmux kubectl)
+LANG_PLUGINS=(cargo rust npm)
+plugins=($VS_PLUGINS $TOOLS_PLUGINS $LANG_PLUGINS web-search sudo $PLATFORM_PLUGINS history-substring-search zsh-syntax-highlighting)
 source "$ZSH/oh-my-zsh.sh"
 
 export EDITOR='vim'
