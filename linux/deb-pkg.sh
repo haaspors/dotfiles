@@ -11,6 +11,7 @@ sudo apt-get install -y wireshark virtualbox
 sudo apt-get install -y git-gui gitk git-email git-review git-extras
 sudo apt-get install -y gcc clang valgrind
 sudo apt-get install -y binutils build-essential
+sudo apt-get install -y glibc-doc manpages-posix-dev
 sudo apt-get install -y bison flex yasm
 sudo apt-get install -y python-dev python-yaml
 
