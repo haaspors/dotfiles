@@ -1,5 +1,6 @@
 filetype off
 
+set rtp+=~/.fzf
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
@@ -21,6 +22,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'vimwiki/vimwiki'
 
+Plugin 'junegunn/fzf.vim'
 Plugin 'kien/ctrlp.vim'
 if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
