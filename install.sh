@@ -75,6 +75,11 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   _git_get_repo git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi
 
+# fsz
+if [[ ! -d "$HOME/.fsz" ]]; then
+  _git_get_repo git://github.com/junegunn/fsz.git $HOME/.fsz
+fi
+
 # Install powerline fonts
 pushd $TMP
 git https://github.com/powerline/fonts powerfonts
