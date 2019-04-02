@@ -33,7 +33,7 @@ fi
 VS_PLUGINS=(git git-prompt git-extras github mercurial)
 TOOLS_PLUGINS=(tmux kubectl)
 LANG_PLUGINS=(cargo rust npm)
-plugins=($VS_PLUGINS $TOOLS_PLUGINS $LANG_PLUGINS web-search sudo $PLATFORM_PLUGINS history-substring-search zsh-syntax-highlighting)
+plugins=($VS_PLUGINS $TOOLS_PLUGINS $LANG_PLUGINS web-search sudo $PLATFORM_PLUGINS history-substring-search)
 source "$ZSH/oh-my-zsh.sh"
 
 export EDITOR='vim'
