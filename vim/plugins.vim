@@ -24,7 +24,9 @@ Plugin 'vimwiki/vimwiki'
 
 Plugin 'junegunn/fzf.vim'
 Plugin 'kien/ctrlp.vim'
-if executable("ag")
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --follow --color=never --hidden --no-ignore --glob "!.git/*"'
+elseif executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
