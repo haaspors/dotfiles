@@ -1,28 +1,21 @@
 # This tmux statusbar config was created by tmuxline.vim
-# on Mon, 06 Jul 2015
+# on Sat, 31 Aug 2019
 
-set -g status-bg "colour234"
-set -g message-command-fg "colour255"
-set -g status-justify "left"
-set -g status-left-length "100"
 set -g status "on"
-set -g pane-active-border-fg "colour190"
-set -g message-bg "colour238"
+set -g status-justify "left"
+set -g status-style bg="#282a2e",none
+set -g status-left-length "100"
+set -g status-left-style none
 set -g status-right-length "100"
-set -g status-right-attr "none"
-set -g message-fg "colour255"
-set -g message-command-bg "colour238"
-set -g status-attr "none"
-set -g pane-border-fg "colour238"
-set -g status-left-attr "none"
-setw -g window-status-fg "colour008"
-setw -g window-status-attr "none"
-setw -g window-status-activity-bg "colour234"
-setw -g window-status-activity-attr "none"
-setw -g window-status-activity-fg "colour190"
+set -g status-right-style none
+set -g message-style bg="#373b41",fg="#e0e0e0"
+set -g message-command-style bg="#373b41",fg="#e0e0e0"
+set -g pane-active-border-style fg="#b5bd68"
+set -g pane-border-style fg="#373b41"
+setw -g window-status-style fg="#de935f",bg="#282a2e",none
+setw -g window-status-activity-style bg="#282a2e",fg="#b5bd68",none
 setw -g window-status-separator ""
-setw -g window-status-bg "colour234"
-set -g status-left "#[fg=colour17,bg=colour149] #S #[fg=colour149,bg=colour234,nobold,nounderscore,noitalics]"
-set -g status-right "#[fg=colour238,bg=colour234,nobold,nounderscore,noitalics]#[fg=colour248,bg=colour238] %Y-%m-%d・%H:%M #[fg=colour149,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour17,bg=colour149] #(whoami)@#h "
-setw -g window-status-format "#[fg=colour008,bg=colour234] #I #[fg=colour008,bg=colour234] #W "
-setw -g window-status-current-format "#[fg=colour234,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour255,bg=colour238] #I #[fg=colour255,bg=colour238] #W #[fg=colour238,bg=colour234,nobold,nounderscore,noitalics]"
+set -g status-left "#[fg=#282a2e,bg=#b5bd68] #S #[fg=#b5bd68,bg=#282a2e,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=#373b41,bg=#282a2e,nobold,nounderscore,noitalics]#[fg=#e0e0e0,bg=#373b41] %Y-%m-%d  %H:%M #[fg=#b5bd68,bg=#373b41,nobold,nounderscore,noitalics]#[fg=#282a2e,bg=#b5bd68] #h "
+setw -g window-status-format "#[fg=#de935f,bg=#282a2e] #I #[fg=#de935f,bg=#282a2e] #W "
+setw -g window-status-current-format "#[fg=#282a2e,bg=#373b41,nobold,nounderscore,noitalics]#[fg=#e0e0e0,bg=#373b41] #I #[fg=#e0e0e0,bg=#373b41] #W #[fg=#373b41,bg=#282a2e,nobold,nounderscore,noitalics]"
