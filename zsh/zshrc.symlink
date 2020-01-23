@@ -30,7 +30,7 @@ fi
 VS_PLUGINS=(git git-prompt git-extras github mercurial)
 TOOLS_PLUGINS=(tmux ripgrep kubectl)
 LANG_PLUGINS=(cargo rust go npm)
-MISC_PLUGINS=(web-search sudo history-substring-search)
+MISC_PLUGINS=(colored-man-pages web-search sudo history-substring-search)
 CUSTOM_PLUGINS=(pidcat)
 plugins=($PLATFORM_PLUGINS $TOOLS_PLUGINS $VS_PLUGINS $LANG_PLUGINS $MISC_PLUGINS $CUSTOM_PLUGINS)
 source "$ZSH/oh-my-zsh.sh"
