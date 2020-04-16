@@ -81,8 +81,8 @@ if [[ ! -d "$HOME/.fsz" ]]; then
 fi
 
 # Install powerline fonts
-pushd $TMP
-git https://github.com/powerline/fonts powerfonts
+pushd /tmp
+git clone https://github.com/powerline/fonts powerfonts
 powerfonts/install.sh
 rm -rf powerfonts
 popd
