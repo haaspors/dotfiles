@@ -29,7 +29,7 @@ elif [[ "$(lsb_release -si)" == "Debian" ]]; then
   PLATFORM_PLUGINS=debian
 fi
 VS_PLUGINS=(git git-prompt git-extras github mercurial)
-TOOLS_PLUGINS=(tmux ripgrep kubectl)
+TOOLS_PLUGINS=(tmux ripgrep fzf kubectl)
 LANG_PLUGINS=(cargo rust go npm)
 MISC_PLUGINS=(colored-man-pages web-search sudo history-substring-search)
 CUSTOM_PLUGINS=(pidcat)
@@ -44,4 +44,3 @@ source "$ZSH/oh-my-zsh.sh"
 [ -e /usr/share/google-cloud-sdk/completion.zsh.inc ] && source "/usr/share/google-cloud-sdk/completion.zsh.inc"
 
 [ -x "$(which rg)" ] && export FZF_DEFAULT_COMMAND="rg --files --color=never --follow --hidden --no-ignore --glob \"!.git/*\""
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
