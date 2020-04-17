@@ -20,6 +20,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -d $HOME/.node_modules/bin ] && export PATH=$PATH:$HOME/.node_modules/bin
 [ -d $GCSDK/bin ] && export PATH=$PATH:$GCSDK/bin
 [ -d $GOPATH/bin ] && export PATH=$PATH:$GOPATH/bin
+[ -d /opt/android-sdk-linux/platform-tools ] && export PATH=/opt/android-sdk-linux/platform-tools:$PATH
 
 # Oh-My-ZSh plugins
 if [[ "$(uname)" == "Darwin" ]]; then
