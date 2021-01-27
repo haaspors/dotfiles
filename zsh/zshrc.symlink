@@ -13,6 +13,7 @@ ZSH_THEME="haaspors"
 
 # PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+[ -d /snap/bin ] && export PATH=$PATH:/snap/bin
 [ -d $DOTFILES/bin ] && export PATH=$DOTFILES/bin:$PATH
 [ -d $HOME/bin ] && export PATH=$HOME/bin:$PATH
 [ -d $HOME/.local/bin ] && export PATH=$PATH:$HOME/.local/bin
