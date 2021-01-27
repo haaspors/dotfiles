@@ -68,6 +68,7 @@ fi
 # tmux
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
   _git_get_repo https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+  $HOME/.tmux/plugins/tpm/bin/install_plugins
 fi
 
 # zsh
