@@ -22,6 +22,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'vimwiki/vimwiki'
 
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'kien/ctrlp.vim'
 if executable('rg')
