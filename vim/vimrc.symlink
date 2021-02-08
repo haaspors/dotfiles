@@ -102,7 +102,7 @@ nnoremap <leader>z :CounterpointNext! aboveleft vsplit<CR>
 nnoremap <c-n> :bn<CR>
 nnoremap <c-b> :bp<CR>
 
-nmap <leader>a :Rg! <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>A :Rg! -w <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>Ah :Rg! -w -t h <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>Ac :Rg! -w -t c <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>a :RgRaw! <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>A :RgRaw! -w <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>Ah :RgRaw! -w -t h <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>Ac :RgRaw! -w -t c <C-R>=expand("<cword>")<CR><CR>
