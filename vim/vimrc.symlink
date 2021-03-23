@@ -106,3 +106,6 @@ nmap <leader>a :RgRaw! <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>A :RgRaw! -w <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>Ah :RgRaw! -w -t h <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>Ac :RgRaw! -w -t c <C-R>=expand("<cword>")<CR><CR>
+vmap <Leader>/ <Plug>AgRawVisualSelection
+" nmap <Leader>/ <Plug>AgRawSearch
+" nmap <Leader>* <Plug>AgRawWordUnderCursor
