@@ -109,5 +109,7 @@ nmap <leader>Ac :RgRaw! -w -t c <C-R>=expand("<cword>")<CR><CR>
 vmap <Leader>/ <Plug>AgRawVisualSelection
 " nmap <Leader>/ <Plug>AgRawSearch
 " nmap <Leader>* <Plug>AgRawWordUnderCursor
+nnoremap <Leader>cf :<C-u>ClangFormat<CR>
+vnoremap <Leader>cf :ClangFormat<CR>
 
 autocmd Filetype java setlocal ts=4 sw=4 expandtab
