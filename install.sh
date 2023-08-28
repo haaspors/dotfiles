@@ -93,8 +93,8 @@ _create_dir $HOME/.vim/tmp/backup
 _create_dir $HOME/.vim/tmp/undo
 _create_symlink $ROOTDIR/vim/plugins.vim $HOME/.vim/plugins.vim
 _create_symlink $ROOTDIR/vim/nerdtree_plugin $HOME/.vim/nerdtree_plugin
-_git_get_repo git://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
-vim +BundleInstall
+_git_get_repo https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # Emacs
 _create_symlink $ROOTDIR/emacs.d $HOME/.emacs.d

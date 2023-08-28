@@ -1,10 +1,10 @@
 filetype off
 
 set rtp+=~/.fzf
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " vim main plugins
 Plugin 'editorconfig/editorconfig-vim'
