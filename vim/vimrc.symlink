@@ -102,13 +102,11 @@ nnoremap <leader>z :CounterpointNext! aboveleft vsplit<CR>
 nnoremap <c-n> :bn<CR>
 nnoremap <c-b> :bp<CR>
 
-nmap <leader>a :RgRaw! <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>A :RgRaw! -w <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>Ah :RgRaw! -w -t h <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>Ac :RgRaw! -w -t c <C-R>=expand("<cword>")<CR><CR>
-vmap <Leader>/ <Plug>AgRawVisualSelection
-" nmap <Leader>/ <Plug>AgRawSearch
-" nmap <Leader>* <Plug>AgRawWordUnderCursor
+vmap <Leader>/ <Plug>RgRawVisualSelection
+nmap <leader>a <Plug>RgRawWordUnderCursor<CR>
+nmap <leader>A :RgRaw -w $'<C-r>a'<CR>
+nmap <leader>Ah :RgRaw -w -t h $'<C-r>a'<CR>
+nmap <leader>Ac :RgRaw -w -t c $'<C-r>a'<CR><CR>
 nnoremap <Leader>cf :<C-u>ClangFormat<CR>
 vnoremap <Leader>cf :ClangFormat<CR>
 
