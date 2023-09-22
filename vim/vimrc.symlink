@@ -93,8 +93,6 @@ nnoremap <leader>ez :e ~/.zshrc<CR>
 nnoremap <leader>et :e ~/.tmux.conf<CR>
 nnoremap <leader>h :nohls<CR>
 nnoremap <leader>l :ls<CR>
-nnoremap <leader>p :bp<CR>
-nnoremap <leader>f :bn<CR>
 nnoremap <leader>, :w<CR>
 nnoremap <leader>. <c-^>
 nnoremap <leader>s :%s/
