@@ -45,6 +45,8 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " extra language support
+Plugin 'neoclide/coc.nvim'
+source ~/.vim/coc.vim
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-markdown'
 Plugin 'tkztmk/vim-vala'

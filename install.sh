@@ -92,6 +92,7 @@ _create_dir $HOME/.vim/tmp/swap
 _create_dir $HOME/.vim/tmp/backup
 _create_dir $HOME/.vim/tmp/undo
 _create_symlink $ROOTDIR/vim/plugins.vim $HOME/.vim/plugins.vim
+_create_symlink $ROOTDIR/vim/coc.vim $HOME/.vim/coc.vim
 _create_symlink $ROOTDIR/vim/nerdtree_plugin $HOME/.vim/nerdtree_plugin
 _git_get_repo https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
