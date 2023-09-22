@@ -51,6 +51,12 @@ Plugin 'tkztmk/vim-vala'
 Plugin 'posva/vim-vue'
 Plugin 'udalov/kotlin-vim'
 
+" rust
+Plugin 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+
 " togglable panels
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
@@ -60,8 +66,6 @@ Plugin 'jceb/vim-orgmode'
 let g:org_agenda_files = ['~/org/*.org']
 let g:org_indent = 1
 
-" Rust
-Plugin 'rust-lang/rust.vim'
 
 " Colorschemes
 Plugin 'dracula/vim'
