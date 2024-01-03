@@ -1,6 +1,10 @@
 set nocompatible               " be iMproved
 set encoding=utf-8
 
+" set <leader>
+let mapleader=","
+let maplocalleader="\\"
+
 source ~/.vim/plugins.vim
 
 colorscheme molokai
@@ -55,10 +59,6 @@ set noswapfile
 set undofile
 set history=100
 set undolevels=100
-
-" set <leader>
-let mapleader=","
-let maplocalleader="\\"
 
 " show trailing whitespaces
 let &colorcolumn="80"
