@@ -30,7 +30,7 @@ elif [[ "$(lsb_release -si)" == "Debian" ]]; then
   PLATFORM_PLUGINS=debian
 fi
 VS_PLUGINS=(git git-prompt git-extras github mercurial)
-TOOLS_PLUGINS=(tmux ripgrep fzf kubectl docker)
+TOOLS_PLUGINS=(ripgrep fzf kubectl docker)
 LANG_PLUGINS=(rust golang npm)
 MISC_PLUGINS=(colored-man-pages web-search sudo history-substring-search)
 CUSTOM_PLUGINS=(pidcat)
