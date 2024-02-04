@@ -16,9 +16,6 @@ set -g mouse on
 
 bind C-l send-keys 'C-l'
 
-bind -T copy-mode-vi v send-keys -X begin-selection
-bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-
 source $HOME/.dotfiles/tmux/tmux.theme
 
 # List of plugins
@@ -29,6 +26,12 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
+
+# set vi-mode
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
 bind '"' split-window -v -c "#{pane_current_path}"
 unbind %
