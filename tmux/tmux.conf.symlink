@@ -1,3 +1,4 @@
+set-option -sa terminal-overrides ",xterm*:Tc"
 set-option -g default-shell /bin/zsh
 
 # prefix is now c-a
