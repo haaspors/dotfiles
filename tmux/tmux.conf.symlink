@@ -28,3 +28,7 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
+
+bind '"' split-window -v -c "#{pane_current_path}"
+unbind %
+bind | split-window -h -c "#{pane_current_path}"
