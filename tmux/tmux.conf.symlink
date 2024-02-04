@@ -1,18 +1,17 @@
 set-option -sa terminal-overrides ",xterm*:Tc"
 set-option -g default-shell /bin/zsh
+# mouse support
+set -g mouse on
 
 # prefix is now c-a
+unbind C-b
 set -g prefix C-a
 bind C-a send-prefix
-unbind C-b
 
 set -g history-limit 20000
 
 set -g base-index 1
 setw -g pane-base-index 1
-
-# mouse support
-set -g mouse on
 
 bind C-l send-keys 'C-l'
 
