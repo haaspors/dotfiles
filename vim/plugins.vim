@@ -21,6 +21,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'vimwiki/vimwiki'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'tomtomjhj/AnsiEsc.vim'
 
 Plugin 'jesseleite/vim-agriculture'
 Plugin 'junegunn/fzf'
