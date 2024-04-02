@@ -105,6 +105,8 @@ nmap <leader>a <Plug>RgRawWordUnderCursor<CR>
 nmap <leader>A :RgRaw -w $'<C-r>a'<CR>
 nmap <leader>Ah :RgRaw -w -t h $'<C-r>a'<CR>
 nmap <leader>Ac :RgRaw -w -t c $'<C-r>a'<CR><CR>
+nmap <leader>mr <Plug>MarkRegex
+xmap <leader>mr <Plug>MarkRegex
 nnoremap <Leader>cf :<C-u>ClangFormat<CR>
 vnoremap <Leader>cf :ClangFormat<CR>
 
