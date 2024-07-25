@@ -59,6 +59,16 @@ set undofile
 set history=100
 set undolevels=100
 
+" Make sure native clipboard works on wayland
+if ($XDG_SESSION_TYPE ==# 'wayland' || ! empty($WAYLAND_DISPLAY)) && !has('nvim')
+augroup wl-clipboard
+    autocmd!
+    autocmd VimEnter * call setreg('+', system('wl-paste -n'))
+    autocmd FocusLost * :call system('wl-copy', @+)
+    autocmd FocusGained * :let @+ = system('wl-paste -n')
+augroup END
+endif
+
 " show trailing whitespaces
 let &colorcolumn="80"
 set list
