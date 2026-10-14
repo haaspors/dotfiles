@@ -26,6 +26,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # Oh-My-ZSh plugins
 if [[ "$(uname)" == "Darwin" ]]; then
   PLATFORM_PLUGINS=brew
+elif [[ -f "/etc/arch-release" ]]; then
+  PLATFORM_PLUGINS=archlinux
 elif [[ "$(lsb_release -si)" == "Debian" ]]; then
   PLATFORM_PLUGINS=debian
 fi
