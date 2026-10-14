@@ -19,7 +19,7 @@
 [push]
 	default = simple
 [core]
-	editor = vim
+	editor = nvim
 	pager = less -F -X
 [url "git@github.com:"]
 	insteadOf = https://github.com/
