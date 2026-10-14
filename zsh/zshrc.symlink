@@ -7,7 +7,7 @@ export GOPATH=$(go env GOPATH)
 [ -d $HOME/src ] && export SRCDIR=$HOME/src
 [[ ! -v SSH_AUTH_SOCK ]] && export SSH_AUTH_SOCK=/run/user/$UID/ssh-agent.socket
 
-export TERM=xterm-256color
+export TERM=alacritty
 export EDITOR=nvim
 
 ZSH_THEME="haaspors"
