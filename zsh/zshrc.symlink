@@ -31,7 +31,7 @@ elif [[ -f "/etc/arch-release" ]]; then
 elif [[ "$(lsb_release -si)" == "Debian" ]]; then
   PLATFORM_PLUGINS=debian
 fi
-VS_PLUGINS=(git git-prompt git-extras github mercurial)
+VS_PLUGINS=(git git-prompt git-extras gh mercurial)
 TOOLS_PLUGINS=(fzf kubectl docker)
 LANG_PLUGINS=(rust golang npm)
 MISC_PLUGINS=(colored-man-pages web-search sudo history-substring-search)
